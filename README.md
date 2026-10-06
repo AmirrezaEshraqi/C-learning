@@ -1,6 +1,6 @@
 My learning journey with the C programming language, including exercises, experiments, and notes.
 This repository contains my exercises, experiments, and notes as I build my foundation in C.
-Current Focus:
+## Current Focus:
 -C fundamentals
 -Program structure and syntax
 -Variables and data types
@@ -13,7 +13,7 @@ Current Focus:
 -Memory
 -File handling
 -Data structures
-Learning Resources:
+## Learning Resources:
 W3Schools C Tutorial
 The C Programming Language — Brian W. Kernighan and Dennis M. Ritchie
 Computer Systems: A Programmer's Perspective — Randal E. Bryant and David R. O'Hallaron
