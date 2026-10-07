@@ -33,5 +33,10 @@ unsigned long int PositiveLongInt = 66e6;
 unsigned long long int Maximum = 18e18;
 long double TestLongDouble = 56.6454L;
 printf("%hd \n %u \n %li \n %lli \n %lli \n %lu \n %llu \n %.6lf \n", ShortInt, FirstOutsidePositive, FirstLongint, TestingTheCapicity, testingthecapicity, PositiveLongInt, Maximum, TestLongDouble);
-printf("Total bytes : %zu\n", (sizeof(x) + sizeof(y) + sizeof(z) + sizeof(myNum) + sizeof(FirstLetter) + sizeof(a) + sizeof(b) + sizeof(c) + sizeof(myDouble) + sizeof(myFloat) + sizeof(myDoubleNum) + sizeof(_ITEMNUMBERS) + sizeof(Currency_Symbol) + sizeof(eachitemprice) + sizeof(ShortInt) + sizeof(FirstOutsidePositive) + sizeof(FirstLongint) + sizeof(TestingTheCapicity) + sizeof(testingthecapicity) + sizeof(PositiveLongInt) + sizeof(Maximum) + sizeof(TestLongDouble)) );
+int Five = 5;
+int Two = 2;
+/* Testing the type conversion */
+float sum = (float) Five / Two;
+printf("%.3f", sum);
+printf("Total bytes : %zu\n", (sizeof(x) + sizeof(y) + sizeof(z) + sizeof(myNum) + sizeof(FirstLetter) + sizeof(a) + sizeof(b) + sizeof(c) + sizeof(myDouble) + sizeof(myFloat) + sizeof(myDoubleNum) + sizeof(_ITEMNUMBERS) + sizeof(Currency_Symbol) + sizeof(eachitemprice) + sizeof(ShortInt) + sizeof(FirstOutsidePositive) + sizeof(FirstLongint) + sizeof(TestingTheCapicity) + sizeof(testingthecapicity) + sizeof(PositiveLongInt) + sizeof(Maximum) + sizeof(TestLongDouble) + sizeof(Two) + sizeof(Five) ) );
 }
