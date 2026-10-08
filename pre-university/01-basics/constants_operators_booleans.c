@@ -5,9 +5,9 @@ int t1 = 4; // Global variable
 int t2 = 6; // Global variable
 double const v0 = 18.0;
 double const a = 3.0;
-int t3 = ((t1+t2) / 2); 
 int TotalParts = 23;
 int main() {
+    int t3 = ((t1+t2) / 2); 
     int (x1) = 3 * (t1*t1) + 5*t1 + 10; 
     int (x2) = 3 * (t2*t2) + 5*t2 + 10; // Car's position formula
     int (v1) = 6 * t1 + 5; 
