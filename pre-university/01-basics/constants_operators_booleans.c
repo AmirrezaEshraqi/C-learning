@@ -14,7 +14,7 @@ int main() {
     int (v2) = 6 * t2 + 5; // Car's velocity formula
     int (a1) = 6; // Car's acceleration formula
     int (a2) = 6; 
-    int AverageVelocity = (v2-v1)/(t2-t1); 
+    int AverageVelocity = (v2+v1)/2; 
     printf("Car's position at the first place and second place : %d %d\n", x1, x2);
     printf("Car's velocity at the first place and second place : %d %d\n", v1, v2);
     printf("Car's acceleration at the first place and second place : %d %d\n", a1, a2);
