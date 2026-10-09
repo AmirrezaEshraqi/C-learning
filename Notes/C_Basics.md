@@ -1,170 +1,141 @@
-Notes for showing the progress
-# C Basics — Notes
+# C Basics
 
-## 1. Introduction & Getting Started
-- C is a general-purpose, compiled programming language.
-- C programs are commonly compiled before execution.
-- `#include <stdio.h>` provides standard input/output functions.
-- `main()` is the entry point of a hosted C program.
-- `return 0;` indicates successful termination from `main`.
+Short notes from my C practice.
+
+## 1. Getting Started
+- C is a compiled programming language.
+- `#include <stdio.h>` gives access to functions like `printf()`.
+- `main()` is where a hosted C program starts.
+- `return 0;` indicates successful program termination.
 
 ## 2. Syntax
-- Statements usually end with `;`.
-- Code blocks are enclosed in `{}`.
-- C is case-sensitive.
-- Every executable statement must follow C syntax rules.
-
-```c
-#include <stdio.h>
-
-int main(void) {
-    printf("Hello, World!\n");
-    return 0;
-}
-```
+- Most statements end with `;`.
+- Use `{}` to group statements into a block.
+- C is case-sensitive (`age` and `Age` are different).
+- Strings use double quotes; character constants use single quotes.
 
 ## 3. Output
-- `printf()` prints formatted output to `stdout`.
-- `\n` inserts a newline.
-- Format specifiers determine how values are printed.
+- `printf()` prints text and formatted values.
+- `\n` moves to a new line.
+- Format specifiers should match the argument types.
 
-| Specifier | Typical use |
+| Specifier | Used for |
 |---|---|
 | `%d` | `int` |
-| `%f` | `float` / `double` in `printf` |
+| `%f` | `float` or `double` in `printf()` |
 | `%c` | Character |
-| `%s` | Null-terminated string |
-| `%zu` | `size_t`, such as the result of `sizeof` |
+| `%s` | String |
+| `%zu` | `size_t` |
 
 ## 4. Comments
-- `//` starts a single-line comment.
-- `/* ... */` creates a block comment.
-- Comments are ignored by the compiler as code.
-- Use comments to explain intent or non-obvious decisions.
-
-```c
-// Single-line comment
-
-/*
-   Block comment
-*/
-```
+- `//` for a single-line comment.
+- `/* ... */` for a block comment.
+- Comments explain code; they don't change what it does.
 
 ## 5. Variables
-- A variable is a named object that stores a value.
-- Declare a variable before using it.
-- Initialize variables when an initial value is needed.
-- Local variables are not automatically initialized.
+- Declare a variable with a type and a name.
+- Initialize it if you need a starting value.
+- Local variables aren't automatically initialized.
 
 ```c
 int age = 18;
-double price = 9.99;
+float temperature = 24.5f;
 char grade = 'A';
 ```
 
 ## 6. Data Types
-- A data type determines the kind of value an object can represent.
-- Common types: `char`, `int`, `float`, `double`.
+- `char`: character-sized integer type.
+- `int`: integer values.
+- `float`: floating-point values.
+- `double`: floating-point values with at least as much precision as `float`.
 - `short`, `long`, `signed`, and `unsigned` modify integer types.
-- Exact sizes depend on the implementation.
-- `sizeof(type)` returns the size in bytes.
+- Type sizes depend on the implementation.
+- `sizeof` gives an object's or type's size in bytes.
 
 ```c
 printf("%zu\n", sizeof(int));
 ```
 
 ## 7. Type Conversion
-- **Implicit conversion:** performed automatically by C.
-- **Explicit conversion (cast):** requested by the programmer.
-- Converting a floating-point value to an integer discards the fractional part.
-- Integer division truncates the fractional part.
+- C can convert values automatically.
+- A cast requests an explicit conversion.
+- Integer division drops the fractional part.
+- Converting a floating-point value to an integer truncates toward zero.
 
 ```c
-int a = 5 / 2;          // 2
+int a = 5 / 2;           // 2
 double b = 5.0 / 2;      // 2.5
-double c = (double)5 / 2; // 2.5
+int c = (int)3.9;        // 3
 ```
 
 ## 8. Constants
-- `const` makes an object non-modifiable through that identifier.
+- `const` prevents modification through that identifier.
 - `#define` creates a preprocessor macro.
-- Constants help express values that should not be modified.
+- Use meaningful names for values that shouldn't change.
 
 ```c
-const int MAX_SIZE = 100;
+const int max_size = 100;
 #define BUFFER_SIZE 256
 ```
 
 ## 9. Operators
 
-### Arithmetic Operators
-- `+` Addition
-- `-` Subtraction
-- `*` Multiplication
-- `/` Division
-- `%` Remainder (integer operands)
-- `++` Increment
-- `--` Decrement
+### Arithmetic
+- `+` addition
+- `-` subtraction
+- `*` multiplication
+- `/` division
+- `%` remainder (integer operands)
+- `++` increment
+- `--` decrement
+
+### Assignment
+- `=` assignment
+- `+=`, `-=`, `*=`, `/=`, `%=` compound assignment
+- `&=`, `|=`, `^=`, `<<=`, `>>=` bitwise compound assignment
 
 ```c
-int remainder = 7 % 3; // 1
+int x = 5;
+x += 3;  // x is now 8
 ```
 
-### Assignment Operators
-- `=` Assigns a value.
-- Compound assignments combine an operation with assignment.
+### Comparison
+- `==` equal
+- `!=` not equal
+- `>` greater than
+- `<` less than
+- `>=` greater than or equal
+- `<=` less than or equal
+- Comparisons produce `0` or `1` in C.
 
-| Operator | Equivalent form |
-|---|---|
-| `x += 3` | `x = x + 3` |
-| `x -= 3` | `x = x - 3` |
-| `x *= 3` | `x = x * 3` |
-| `x /= 3` | `x = x / 3` |
-| `x %= 3` | `x = x % 3` |
-| `x &= 3` | `x = x & 3` |
-| `x |= 3` | `x = x | 3` |
-| `x ^= 3` | `x = x ^ 3` |
-| `x <<= 1` | `x = x << 1` |
-| `x >>= 1` | `x = x >> 1` |
+### Logical
+- `&&` AND
+- `||` OR
+- `!` NOT
+- `0` is false; nonzero values are true in conditions.
+- `&&` and `||` can skip evaluating the second operand.
 
-### Comparison Operators
-- `==` Equal to
-- `!=` Not equal to
-- `>` Greater than
-- `<` Less than
-- `>=` Greater than or equal to
-- `<=` Less than or equal to
-- Comparison expressions evaluate to `0` or `1` in C.
+### Bitwise
+- `&` AND
+- `|` OR
+- `^` XOR
+- `~` NOT
+- `<<` left shift
+- `>>` right shift
+- These operators work on integer values at the bit level.
 
-### Logical Operators
-- `&&` Logical AND
-- `||` Logical OR
-- `!` Logical NOT
-- In conditions, `0` means false and any nonzero value means true.
-- `&&` and `||` short-circuit: the second operand may not be evaluated.
-
-### Bitwise Operators
-- `&` Bitwise AND
-- `|` Bitwise OR
-- `^` Bitwise XOR
-- `~` Bitwise NOT
-- `<<` Left shift
-- `>>` Right shift
-- Bitwise operators operate on integer values at the bit level.
-
-### Operator Precedence
-- Precedence determines which operators bind first.
-- Associativity determines grouping when operators have the same precedence.
-- Use parentheses `()` to make expressions clearer.
-- Do not rely on precedence rules when parentheses improve readability.
+### Precedence
+- Precedence decides which operators group first.
+- Parentheses make the intended order clear.
 
 ```c
-int result = 2 + 3 * 4;    // 14
-int grouped = (2 + 3) * 4; // 20
+int a = 2 + 3 * 4;     // 14
+int b = (2 + 3) * 4;   // 20
 ```
 
-## 10. Practice
-- Complete the exercises and operator challenges.
-- Test expressions with different input values.
-- Check integer division, type conversions, and operator precedence.
-- Compile and run programs to verify expected behavior.
+## Practice
+- Try the examples by compiling and running them.
+- Change the values and check the results.
+- Pay attention to integer division, conversions, and operator precedence.
+
+Source: [W3Schools C Tutorial](https://www.w3schools.com/c/index.php)
