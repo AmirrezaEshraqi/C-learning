@@ -1,141 +1,166 @@
 # C Basics
 
-Short notes from my C practice.
+My notes from learning C.
 
-## 1. Getting Started
-- C is a compiled programming language.
-- `#include <stdio.h>` gives access to functions like `printf()`.
-- `main()` is where a hosted C program starts.
-- `return 0;` indicates successful program termination.
+## 1. Basics
 
-## 2. Syntax
-- Most statements end with `;`.
-- Use `{}` to group statements into a block.
-- C is case-sensitive (`age` and `Age` are different).
-- Strings use double quotes; character constants use single quotes.
-
-## 3. Output
-- `printf()` prints text and formatted values.
-- `\n` moves to a new line.
-- Format specifiers should match the argument types.
-
-| Specifier | Used for |
-|---|---|
-| `%d` | `int` |
-| `%f` | `float` or `double` in `printf()` |
-| `%c` | Character |
-| `%s` | String |
-| `%zu` | `size_t` |
-
-## 4. Comments
-- `//` for a single-line comment.
-- `/* ... */` for a block comment.
-- Comments explain code; they don't change what it does.
-
-## 5. Variables
-- Declare a variable with a type and a name.
-- Initialize it if you need a starting value.
-- Local variables aren't automatically initialized.
+- `#include <stdio.h>` — input/output functions.
+- `main()` — program entry point.
+- Statements usually end with `;`.
+- `{}` defines a block of code.
+- `//` and `/* ... */` are comments.
+- C is case-sensitive.
 
 ```c
 int age = 18;
-float temperature = 24.5f;
+const double PI = 3.14;
 char grade = 'A';
 ```
 
-## 6. Data Types
-- `char`: character-sized integer type.
-- `int`: integer values.
-- `float`: floating-point values.
-- `double`: floating-point values with at least as much precision as `float`.
-- `short`, `long`, `signed`, and `unsigned` modify integer types.
-- Type sizes depend on the implementation.
-- `sizeof` gives an object's or type's size in bytes.
+## 2. Data Types
+
+- `int` — integers
+- `float` — floating-point numbers
+- `double` — floating-point numbers with more precision
+- `char` — character / small integer type
+- `bool` — available through `<stdbool.h>` in C versions before C23
+
+`sizeof()` returns the size of a type or object in bytes.
+
+## 3. Output and Input
 
 ```c
-printf("%zu\n", sizeof(int));
+printf("Age: %d\n", age);
+scanf("%d", &age);
 ```
 
-## 7. Type Conversion
-- C can convert values automatically.
-- A cast requests an explicit conversion.
-- Integer division drops the fractional part.
-- Converting a floating-point value to an integer truncates toward zero.
+Common format specifiers:
+
+- `%d` — `int`
+- `%f` — `float` in `scanf()`, floating-point value in `printf()`
+- `%lf` — `double` in `scanf()`
+- `%c` — character
+- `%s` — string
+- `%p` — pointer
+- `%zu` — `size_t`
+
+Use `&variable` with `scanf()` for ordinary variables. Check its return value when input validity matters.
+
+## 4. Type Conversion and Operators
 
 ```c
-int a = 5 / 2;           // 2
-double b = 5.0 / 2;      // 2.5
-int c = (int)3.9;        // 3
+int a = 5 / 2;         // 2
+double b = 5.0 / 2;   // 2.5
+int c = (int)3.9;     // 3
 ```
 
-## 8. Constants
-- `const` prevents modification through that identifier.
-- `#define` creates a preprocessor macro.
-- Use meaningful names for values that shouldn't change.
+Integer division discards the fractional part.
+
+**Operators**
+
+- Arithmetic: `+ - * / % ++ --`
+- Comparison: `== != > < >= <=`
+- Logical: `&& || !`
+- Assignment: `= += -= *= /=`
+- Bitwise: `& | ^ ~ << >>`
+
+Use parentheses when precedence is unclear.
 
 ```c
-const int max_size = 100;
-#define BUFFER_SIZE 256
+// Wrong for checking a range:
+0 < x <= 20
+
+// Correct:
+x > 0 && x <= 20
 ```
 
-## 9. Operators
+`&&` and `||` are logical operators; `&` and `|` are bitwise operators.
 
-### Arithmetic
-- `+` addition
-- `-` subtraction
-- `*` multiplication
-- `/` division
-- `%` remainder (integer operands)
-- `++` increment
-- `--` decrement
+## 5. Conditions and Loops
 
-### Assignment
-- `=` assignment
-- `+=`, `-=`, `*=`, `/=`, `%=` compound assignment
-- `&=`, `|=`, `^=`, `<<=`, `>>=` bitwise compound assignment
+- `if / else if / else` — conditional execution
+- `switch / case` — select between cases
+- `for` — loop with initialization, condition and update
+- `while` — loop while a condition is true
+- `break` — exit a loop or `switch`
+- `continue` — skip to the next loop iteration
+
+In conditions, `0` means false and nonzero means true.
+
+## 6. Arrays and Strings
+
+An array stores elements of the same type. Indexing starts at `0`.
 
 ```c
-int x = 5;
-x += 3;  // x is now 8
+int numbers[] = {10, 20, 30};
+printf("%d", numbers[0]);
 ```
 
-### Comparison
-- `==` equal
-- `!=` not equal
-- `>` greater than
-- `<` less than
-- `>=` greater than or equal
-- `<=` less than or equal
-- Comparisons produce `0` or `1` in C.
-
-### Logical
-- `&&` AND
-- `||` OR
-- `!` NOT
-- `0` is false; nonzero values are true in conditions.
-- `&&` and `||` can skip evaluating the second operand.
-
-### Bitwise
-- `&` AND
-- `|` OR
-- `^` XOR
-- `~` NOT
-- `<<` left shift
-- `>>` right shift
-- These operators work on integer values at the bit level.
-
-### Precedence
-- Precedence decides which operators group first.
-- Parentheses make the intended order clear.
+A C string is a `char` array ending with the null character `'\0'`.
 
 ```c
-int a = 2 + 3 * 4;     // 14
-int b = (2 + 3) * 4;   // 20
+char name[] = "Shao";
+```
+
+- `strlen()` counts characters before `'\0'`.
+- `sizeof(name)` gives the array's size in bytes while `name` is still an array.
+- Array access must stay within bounds.
+
+## 7. Memory Addresses and Pointers
+
+- `&x` — address of `x`
+- `int *p` — pointer to an `int`
+- `*p` — access the object pointed to by `p`
+
+```c
+int x = 10;
+int *p = &x;
+
+*p = 20;  // x is now 20
+```
+
+Arrays and pointers are related, but they are not the same thing. Never dereference an invalid or uninitialized pointer.
+
+## 8. Functions
+
+Functions let us reuse code.
+
+```c
+int add(int a, int b)
+{
+    return a + b;
+}
+```
+
+- Parameters receive argument values.
+- `return` sends a value back to the caller.
+- `void` means no return value.
+- A function prototype declares a function before its definition.
+- Local variables have block scope.
+
+**C uses pass by value.** To let a function modify a variable in the caller, pass its address using a pointer.
+
+```c
+void change(int *x)
+{
+    *x = 100;
+}
+```
+
+### Other function topics
+
+- `<math.h>` provides functions such as `sqrt()` and `pow()`.
+- `inline` is a compiler hint, not a guarantee.
+
+```c
+static inline int square(int x)
+{
+    return x * x;
+}
 ```
 
 ## Practice
-- Try the examples by compiling and running them.
-- Change the values and check the results.
-- Pay attention to integer division, conversions, and operator precedence.
 
-Source: [W3Schools C Tutorial](https://www.w3schools.com/c/index.php)
+Keep practicing by writing small programs, testing different inputs, and fixing mistakes.
+
+**Resource:** [W3Schools C Tutorial](https://www.w3schools.com/c/index.php)
