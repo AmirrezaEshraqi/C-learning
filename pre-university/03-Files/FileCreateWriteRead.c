@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main() {
-    printf("Welcome to EnTech V1.0 filemaker & writer! Choose an option : \n");
+    printf("Welcome to EnTech V1.0 filemaker & writer & Reader ! Choose an option : \n");
     printf("================================================================\n");
     printf("1_Read Only\n2_Append Only\n3_Write OR Replace Only OR Create Only\n");
     int option;
