@@ -26,6 +26,10 @@ int main() {
                 char filenameN[100];
                 scanf("%s", filenameN);
                 fptrr = fopen(filenameN, "w");
+                char text[1000];
+                printf("Enter your text (max 999 characters):\n");
+                fgets(text, sizeof(text), stdin);
+                fprintf(fptrr, "%s", text);
             } else if ((strcmp(YesORNo, "no"))==0){
                 printf("Ok. Good Luck!\n");
             } else {
@@ -47,6 +51,10 @@ int main() {
                 char filenameN[100];
                 scanf("%s", filenameN);
                 fptra = fopen(filenameN, "w");
+                char text[1000];
+                printf("Enter your text (max 999 characters):\n");
+                fgets(text, sizeof(text), stdin);
+                fprintf(fptra, "%s", text);
             } else if ((strcmp(YesORNo, "no"))==0){
                 printf("Ok. Good Luck!\n");
             } else {
@@ -68,6 +76,10 @@ int main() {
                 char filenameN[100];
                 scanf("%s", filenameN);
                 fptrw = fopen(filenameN, "w");
+                char text[1000];
+                printf("Enter your text (max 999 characters):\n");
+                fgets(text, sizeof(text), stdin);
+                fprintf(fptrw, "%s", text);
             } else if ((strcmp(YesORNo, "no"))==0){
                 printf("Ok. Good Luck!\n");
             } else {
