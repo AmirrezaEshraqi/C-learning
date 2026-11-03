@@ -22,7 +22,7 @@ int main() {
                 printf("Enter your new file name (with format suffix):");
                 char filenameN[100];
                 scanf("%s", filenameN);
-                fptrr = fopen(filenameN, "r");
+                fptrr = fopen(filenameN, "w");
             } else if ((strcmp(YesORNo, "no"))==0){
                 printf("Ok. Good Luck!\n");
             } else {
@@ -43,7 +43,7 @@ int main() {
                 printf("Enter your new file name (with format suffix):");
                 char filenameN[100];
                 scanf("%s", filenameN);
-                fptra = fopen(filenameN, "a");
+                fptra = fopen(filenameN, "w");
             } else if ((strcmp(YesORNo, "no"))==0){
                 printf("Ok. Good Luck!\n");
             } else {
@@ -71,6 +71,15 @@ int main() {
                 printf("Invalid input.Exiting the program\n");
             }
     break;
+    }
+    if (fptrr != NULL) {
+        fclose(fptrr);
+    }
+    if (fptra != NULL) {
+        fclose(fptra);
+    }
+    if (fptrw != NULL) {
+        fclose(fptrw);
     }
     return 0;
     }
