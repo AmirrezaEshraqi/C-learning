@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
     printf("Welcome to EnTech V1.0 filemaker & writer! Choose an option : \n");
@@ -32,9 +33,21 @@ int main() {
         scanf("%s",&filenamew);
         FILE *fptrw = fopen(filenamew, "w");
         if (fptrw==NULL){
-            printf("File not found! Do you want to create it?\n");
-        }
-        break;
+            printf("File not found! Do you want to create it?(yes/no)\n");
+            char YesORNo[4];
+            scanf("%3s", &YesORNo);
+            if ((strcmp(YesORNo, "yes")) == 0) {
+                printf("Enter your new file name (with format suffix):");
+                char filenameN[100];
+                scanf("%s", filenameN);
+                fptrw = fopen(filenameN, "w");
+            } else if ((strcmp(YesORNo, "no"))==0){
+                printf("Ok. Good Luck!\n");
+            } else {
+                printf("Invalid input.Exiting the program\n");
+            }
+    break;
     }
     return 0;
+    }
 }
