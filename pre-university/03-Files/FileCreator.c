@@ -15,7 +15,19 @@ int main() {
         scanf("%s",&filenamer);
         FILE *fptrr = fopen(filenamer, "r");
         if (fptrr == NULL) {
-            printf("File not found! Exiting the program...\n");
+            printf("File not found! Do you want to create it?(yes/no)\n");
+            char YesORNo[4];
+            scanf("%3s", &YesORNo);
+            if ((strcmp(YesORNo, "yes")) == 0) {
+                printf("Enter your new file name (with format suffix):");
+                char filenameN[100];
+                scanf("%s", filenameN);
+                fptrr = fopen(filenameN, "r");
+            } else if ((strcmp(YesORNo, "no"))==0){
+                printf("Ok. Good Luck!\n");
+            } else {
+                printf("Invalid input.Exiting the program\n");
+            }
         }
         break;
     case 2:
@@ -24,7 +36,19 @@ int main() {
         scanf("%s",&filenamea);
         FILE *fptra = fopen(filenamea, "a");
         if (fptra==NULL) {
-            printf("File not found! Exiting the program...\n");
+            printf("File not found! Do you want to create it?(yes/no)\n");
+            char YesORNo[4];
+            scanf("%3s", &YesORNo);
+            if ((strcmp(YesORNo, "yes")) == 0) {
+                printf("Enter your new file name (with format suffix):");
+                char filenameN[100];
+                scanf("%s", filenameN);
+                fptra = fopen(filenameN, "a");
+            } else if ((strcmp(YesORNo, "no"))==0){
+                printf("Ok. Good Luck!\n");
+            } else {
+                printf("Invalid input.Exiting the program\n");
+            }
         }
         break;
     case 3:
