@@ -25,9 +25,11 @@ int main() {
                 printf("Enter your new file name (with format suffix):");
                 char filenameN[100];
                 scanf("%s", filenameN);
+                int ch;
+                while ((ch = getchar()) != '\n' && ch != EOF);
                 fptrr = fopen(filenameN, "w");
                 char text[1000];
-                printf("Enter your text (max 999 characters):\n");
+                printf("Enter your text (max 999 characters):");
                 fgets(text, sizeof(text), stdin);
                 fprintf(fptrr, "%s", text);
             } else if ((strcmp(YesORNo, "no"))==0){
@@ -50,9 +52,11 @@ int main() {
                 printf("Enter your new file name (with format suffix):");
                 char filenameN[100];
                 scanf("%s", filenameN);
+                int ch;
+                while ((ch = getchar()) != '\n' && ch != EOF);
                 fptra = fopen(filenameN, "w");
                 char text[1000];
-                printf("Enter your text (max 999 characters):\n");
+                printf("Enter your text (max 999 characters):");
                 fgets(text, sizeof(text), stdin);
                 fprintf(fptra, "%s", text);
             } else if ((strcmp(YesORNo, "no"))==0){
@@ -75,6 +79,8 @@ int main() {
                 printf("Enter your new file name (with format suffix):");
                 char filenameN[100];
                 scanf("%s", filenameN);
+                int ch;
+                while ((ch = getchar()) != '\n' && ch != EOF);
                 fptrw = fopen(filenameN, "w");
                 char text[1000];
                 printf("Enter your text (max 999 characters):\n");
