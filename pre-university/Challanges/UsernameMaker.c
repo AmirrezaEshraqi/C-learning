@@ -8,8 +8,11 @@ int main() {
     scanf("%s", lastName);
     // Create username (lowercase, no space)
     char username[100];
+    firstName[0] = tolower(firstName[0]);
+    lastName[0] = tolower(lastName[0]);
     strcat(username, firstName);
     strcat(username, lastName);
+
     char initials[3];
     // Create initials (uppercase first letters)
     initials[0] = toupper(firstName[0]);
