@@ -1,7 +1,6 @@
 #include <stdio.h>
-int sum(int num[]) {
+int sum(int num[], int length){
     int sum = 0;
-    int length = sizeof(num) / sizeof(num[0]);
     for (int i=0; i< length; i++){
         sum += num[i];
     }
@@ -18,7 +17,7 @@ int main() {
             scanf("%d", &a);
             mynumbers[i] = a;
         }
-    printf("Sum : %d", sum(mynumbers));    
+    printf("Sum: %d", sum(mynumbers, length));    
     }
     return 0;
 }
