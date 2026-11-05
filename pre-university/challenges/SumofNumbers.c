@@ -8,11 +8,16 @@ int sum (int num) {
 }
 int main() {
     int n;
+    int a;
     scanf("%d", &n);
-    int inputnumbers[n];
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &inputnumbers[i]);
-        printf("Sum : %d\n", sum(i));
+    char mynumbers[n];
+    int length = sizeof(mynumbers) / sizeof(mynumbers[0]);
+    if (n>0){
+        for (int i=0; i< length; i++){
+            scanf("%d", &a);
+            mynumbers[i] = a;
+            
+        }
     }
     return 0;
 }
