@@ -5,7 +5,10 @@ int main() {
     int age;
     scanf("%s", name);
     scanf("%d", &age);
-
-    // Check and print
+    if (age>=18) {
+        printf("%s can vote", name);
+    } else {
+        printf("%s cannot vote", name);
+    }
     return 0;
 }
