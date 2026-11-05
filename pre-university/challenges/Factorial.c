@@ -1,8 +1,13 @@
 #include <stdio.h>
 
 long factorial(int n) {
-    // Return the factorial of n
-}
+    if (n>0) {
+        return n * factorial(n - 1);
+    } else {
+        return 1;
+    }
+    }
+
 
 int main() {
     int num;
